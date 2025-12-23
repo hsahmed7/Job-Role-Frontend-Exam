@@ -3,103 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JobNova – Job Details</title>
+  <title>JobNova – Job Details (Matched)</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { display: flex; background: #f4f6fb; color: #1f2937; height: 100vh; overflow: hidden; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter, Arial, sans-serif; }
+    body { background: #f4f6fb; color: #1f2937; }
+
+    .app { display: flex; min-height: 100vh; }
 
     /* Sidebar */
     .sidebar {
       width: 260px;
-      background: #0f172a;
-      color: #cbd5e1;
+      background: #ffffff;
+      border-right: 1px solid #e5e7eb;
       padding: 24px 18px;
-      display: flex;
-      flex-direction: column;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffffff;
-      margin-bottom: 32px;
-    }
+    .logo { font-size: 22px; font-weight: 700; margin-bottom: 32px; }
 
     .nav-item {
       padding: 12px 14px;
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 8px;
       cursor: pointer;
-    }
-
-    .nav-item.active { background: #1d4ed8; color: #ffffff; font-weight: bold; }
-    .nav-item:hover { background: #1e293b; }
-
-    /* Main Layout */
-    .main {
-      flex: 1;
       display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-
-    /* Fixed Header */
-    .job-header {
-      background: #ffffff;
-      padding: 24px 32px;
-      border-bottom: 1px solid #e5e7eb;
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-shrink: 0;
+      gap: 10px;
     }
 
-    .job-header h1 { font-size: 24px; }
-    .company { color: #6b7280; margin-top: 4px; }
+    .nav-item.active { background: #ede9fe; color: #6d28d9; font-weight: 600; }
 
-    .apply-btn {
-      padding: 12px 20px;
-      border-radius: 10px;
-      border: none;
-      background: #1d4ed8;
-      color: #ffffff;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    /* Content */
+    .content { flex: 1; padding: 28px 32px; }
 
-    /* Scrollable Content */
-    .job-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 32px;
-    }
-
-    .section {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    }
-
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .meta {
+    .tabs {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       font-size: 14px;
-      color: #374151;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
+    .tab.active { color: #6d28d9; font-weight: 600; }
+
+    .job-layout { display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+
+    /* Job Header Card */
+    .card { background: #ffffff; border-radius: 14px; padding: 24px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); margin-bottom: 24px; }
+
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; }
+
+    .job-title { display: flex; gap: 16px; }
+
+    .logo-circle {
+      width: 48px; height: 48px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; color: #ea4335; border: 1px solid #e5e7eb;
+    }
+
+    .job-meta { font-size: 14px; color: #6b7280; margin-top: 6px; }
+
+    .match {
+      width: 72px; height: 72px; border-radius: 50%; border: 6px solid #84cc16; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #365314;
+    }
+
+    /* Green AI Card */
+    .ai-card {
+      background: #b7f53d;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .ai-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 16px; }
+
+    .ai-box { font-size: 13px; }
+
+    .start-btn { margin-top: 18px; padding: 10px 16px; border-radius: 999px; border: none; background: #111827; color: #fff; cursor: pointer; }
+
+    /* Sections */
+    h3 { font-size: 16px; margin-bottom: 12px; }
     ul { padding-left: 18px; }
-    li { margin-bottom: 10px; line-height: 1.5; }
+    li { margin-bottom: 8px; line-height: 1.5; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; background: #f3f4f6; padding: 6px 10px; border-radius: 999px; }
+
+    /* Right Panel */
+    .side-panel .metric { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+
+    .confidence { display: flex; gap: 10px; margin-bottom: 14px; }
+    .circle { width: 46px; height: 46px; border-radius: 50%; border: 4px solid #a78bfa; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
   </style>
 </head>
 <body>
+
+<div class="app">
 
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -108,72 +103,94 @@
     <div class="nav-item">🤖 AI Mock Interview</div>
     <div class="nav-item">📄 Resume</div>
     <div class="nav-item">👤 Profile</div>
-    <div class="nav-item">⚙️ Settings</div>
+    <div class="nav-item">⚙️ Setting</div>
+    <div class="nav-item">💳 Subscription</div>
+    <div class="nav-item">⭐ Extra Credits</div>
   </aside>
 
-  <!-- Main -->
-  <main class="main">
+  <!-- Main Content -->
+  <main class="content">
 
-    <!-- Fixed Job Header -->
-    <div class="job-header">
+    <div class="tabs">
+      <div class="tab active">Matched</div>
+      <div class="tab">Liked (1)</div>
+      <div class="tab">Applied (1)</div>
+    </div>
+
+    <div class="job-layout">
+
+      <!-- Left Column -->
       <div>
-        <h1>Frontend Software Engineer</h1>
-        <div class="company">Google · Mountain View, CA · Full Time</div>
-      </div>
-      <button class="apply-btn">Apply</button>
-    </div>
+        <div class="card">
+          <div class="job-header">
+            <div class="job-title">
+              <div class="logo-circle">G</div>
+              <div>
+                <h2>UX Designer</h2>
+                <div class="job-meta">Google · Ann Arbor, MI · Remote · Internship</div>
+              </div>
+            </div>
+            <div class="match">93%</div>
+          </div>
 
-    <!-- Scrollable Details -->
-    <div class="job-content">
-
-      <div class="section">
-        <h2>Job Overview</h2>
-        <div class="meta">
-          <span>💼 Full Time</span>
-          <span>📍 Hybrid</span>
-          <span>💰 $150k – $190k</span>
+          <p style="margin-top:16px; color:#4b5563;">Job description Job description Job description Job description Job description Job description Job description Job description.</p>
         </div>
-        <p>
-          Google is seeking a Frontend Software Engineer to build intuitive,
-          performant, and scalable user interfaces used by millions of users
-          worldwide.
-        </p>
+
+        <div class="ai-card">
+          <h3>Maximize your interview success</h3>
+          <div class="ai-grid">
+            <div class="ai-box"><strong>Job-Specific Simulations</strong><br/>Practice questions tailored to your target role.</div>
+            <div class="ai-box"><strong>Actionable Feedback</strong><br/>Step-by-step improvements on responses.</div>
+            <div class="ai-box"><strong>Boost Success Rates</strong><br/>Increase your chances of landing the job.</div>
+          </div>
+          <button class="start-btn">Start Interview</button>
+        </div>
+
+        <div class="card">
+          <h3>Qualification</h3>
+          <div class="tags">
+            <span class="tag">AWS</span><span class="tag">API</span><span class="tag">DevOps</span><span class="tag">Analysis Skills</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Responsibilities</h3>
+          <ul>
+            <li>Collaborate closely with product and engineering teams.</li>
+            <li>Translate user needs into elegant design solutions.</li>
+            <li>Iterate quickly based on feedback and data.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Benefits</h3>
+          <ul>
+            <li>Remote flexibility</li>
+            <li>Equity options</li>
+            <li>Health coverage</li>
+            <li>Mental wellness support</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="section">
-        <h2>Responsibilities</h2>
-        <ul>
-          <li>Develop high-quality web interfaces using modern JavaScript frameworks.</li>
-          <li>Collaborate with UX designers and backend engineers.</li>
-          <li>Optimize applications for speed and scalability.</li>
-          <li>Write clean, maintainable, and testable code.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Qualifications</h2>
-        <ul>
-          <li>Bachelor’s degree in Computer Science or equivalent experience.</li>
-          <li>3+ years of frontend development experience.</li>
-          <li>Strong knowledge of JavaScript, HTML, and CSS.</li>
-          <li>Experience with React or similar frameworks.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>About Google</h2>
-        <p>
-          Google’s mission is to organize the world’s information and make it
-          universally accessible and useful. Join a team that values innovation,
-          diversity, and impact at a global scale.
-        </p>
-      </div>
-
-      <!-- Extra spacing to ensure scrolling behavior -->
-      <div style="height: 300px"></div>
+      <!-- Right Column -->
+      <aside class="side-panel">
+        <div class="card">
+          <h3>Why is this job a good fit for me?</h3>
+          <div class="confidence">
+            <div class="circle">93%</div>
+            <div class="circle">80%</div>
+            <div class="circle">44%</div>
+          </div>
+          <p style="font-size:13px; color:#4b5563;">Relevant experience and skills strongly align with this role.</p>
+        </div>
+      </aside>
 
     </div>
+
   </main>
+
+</div>
 
 </body>
 </html>
