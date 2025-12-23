@@ -3,148 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jobs Page 30</title>
+  <title>JobNova – Jobs</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { display: flex; background: #f5f6f8; }
+    body { display: flex; background: #f4f6fb; color: #1f2937; }
 
-    /* Sidebar */
+    /* JobNova Sidebar */
     .sidebar {
-      width: 240px;
-      background: #ffffff;
-      border-right: 1px solid #e0e0e0;
-      padding: 24px 16px;
+      width: 260px;
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 24px 18px;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    .sidebar h2 {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 16px;
-      text-transform: uppercase;
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 32px;
+    }
+
+    .nav-section {
+      margin-bottom: 20px;
     }
 
     .nav-item {
-      padding: 10px 12px;
-      border-radius: 6px;
-      color: #333;
-      margin-bottom: 6px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .nav-item.active {
-      background: #eef3ff;
-      color: #2f5cff;
+      background: #1d4ed8;
+      color: #ffffff;
       font-weight: bold;
+    }
+
+    .nav-item:hover {
+      background: #1e293b;
     }
 
     /* Main Content */
     .main {
       flex: 1;
-      padding: 32px;
+      padding: 32px 36px;
     }
 
     .header {
-      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
     }
 
     .header h1 {
-      font-size: 24px;
-      margin-bottom: 6px;
+      font-size: 26px;
     }
 
-    .header p {
-      color: #666;
+    .search {
+      padding: 10px 14px;
+      width: 260px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
     }
 
     .jobs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
     }
 
     .job-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .job-card h3 {
       font-size: 18px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .job-card p {
+    .company {
       font-size: 14px;
-      color: #666;
-      margin-bottom: 12px;
+      color: #6b7280;
+      margin-bottom: 14px;
     }
 
-    .job-meta {
-      font-size: 13px;
-      color: #999;
+    .job-tags {
       display: flex;
-      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      background: #e5edff;
+      color: #1d4ed8;
+      border-radius: 999px;
     }
 
     .apply-btn {
-      margin-top: 16px;
-      width: 100%;
-      padding: 10px;
+      padding: 12px;
+      border-radius: 10px;
       border: none;
-      border-radius: 6px;
-      background: #2f5cff;
-      color: #fff;
+      background: #1d4ed8;
+      color: #ffffff;
+      font-weight: bold;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar Navigation -->
+  <!-- JobNova Sidebar -->
   <aside class="sidebar">
-    <h2>Navigation</h2>
-    <div class="nav-item">Home</div>
-    <div class="nav-item">Jobs Page 21</div>
-    <div class="nav-item">Jobs Page 29</div>
-    <div class="nav-item active">Jobs Page 30</div>
+    <div class="logo">JobNova</div>
+
+    <div class="nav-section">
+      <div class="nav-item active">💼 Jobs</div>
+      <div class="nav-item">🤖 AI Mock Interview</div>
+      <div class="nav-item">📄 Resume</div>
+      <div class="nav-item">👤 Profile</div>
+      <div class="nav-item">⚙️ Settings</div>
+      <div class="nav-item">🚪 Logout</div>
+    </div>
   </aside>
 
   <!-- Main Content -->
   <main class="main">
     <div class="header">
-      <h1>Jobs Page 30</h1>
-      <p>Browse available job opportunities</p>
+      <h1>Recommended Jobs</h1>
+      <input class="search" placeholder="Search jobs..." />
     </div>
 
     <section class="jobs-grid">
       <div class="job-card">
-        <h3>Frontend Developer</h3>
-        <p>Build and maintain modern UI components.</p>
-        <div class="job-meta">
-          <span>Remote</span>
-          <span>Full Time</span>
+        <div>
+          <h3>Frontend Developer</h3>
+          <div class="company">Google · Remote</div>
+          <div class="job-tags">
+            <span class="tag">Full Time</span>
+            <span class="tag">React</span>
+          </div>
         </div>
         <button class="apply-btn">Apply Now</button>
       </div>
 
       <div class="job-card">
-        <h3>Backend Engineer</h3>
-        <p>Design scalable APIs and services.</p>
-        <div class="job-meta">
-          <span>New York</span>
-          <span>Full Time</span>
+        <div>
+          <h3>Backend Engineer</h3>
+          <div class="company">Amazon · New York</div>
+          <div class="job-tags">
+            <span class="tag">Full Time</span>
+            <span class="tag">Node.js</span>
+          </div>
         </div>
         <button class="apply-btn">Apply Now</button>
       </div>
 
       <div class="job-card">
-        <h3>UI/UX Designer</h3>
-        <p>Create intuitive user experiences.</p>
-        <div class="job-meta">
-          <span>Remote</span>
-          <span>Contract</span>
+        <div>
+          <h3>UI/UX Designer</h3>
+          <div class="company">Stripe · Remote</div>
+          <div class="job-tags">
+            <span class="tag">Contract</span>
+            <span class="tag">Figma</span>
+          </div>
         </div>
         <button class="apply-btn">Apply Now</button>
       </div>
