@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobNova – Job Details</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { display: flex; background: #f4f6fb; color: #1f2937; height: 100vh; overflow: hidden; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 32px;
+    }
+
+    .nav-item {
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .nav-item.active { background: #1d4ed8; color: #ffffff; font-weight: bold; }
+    .nav-item:hover { background: #1e293b; }
+
+    /* Main Layout */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* Fixed Header */
+    .job-header {
+      background: #ffffff;
+      padding: 24px 32px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .job-header h1 { font-size: 24px; }
+    .company { color: #6b7280; margin-top: 4px; }
+
+    .apply-btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      background: #1d4ed8;
+      color: #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Scrollable Content */
+    .job-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 32px;
+    }
+
+    .section {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 16px;
+    }
+
+    ul { padding-left: 18px; }
+    li { margin-bottom: 10px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">JobNova</div>
+    <div class="nav-item active">💼 Jobs</div>
+    <div class="nav-item">🤖 AI Mock Interview</div>
+    <div class="nav-item">📄 Resume</div>
+    <div class="nav-item">👤 Profile</div>
+    <div class="nav-item">⚙️ Settings</div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Fixed Job Header -->
+    <div class="job-header">
+      <div>
+        <h1>Frontend Software Engineer</h1>
+        <div class="company">Google · Mountain View, CA · Full Time</div>
+      </div>
+      <button class="apply-btn">Apply</button>
+    </div>
+
+    <!-- Scrollable Details -->
+    <div class="job-content">
+
+      <div class="section">
+        <h2>Job Overview</h2>
+        <div class="meta">
+          <span>💼 Full Time</span>
+          <span>📍 Hybrid</span>
+          <span>💰 $150k – $190k</span>
+        </div>
+        <p>
+          Google is seeking a Frontend Software Engineer to build intuitive,
+          performant, and scalable user interfaces used by millions of users
+          worldwide.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Responsibilities</h2>
+        <ul>
+          <li>Develop high-quality web interfaces using modern JavaScript frameworks.</li>
+          <li>Collaborate with UX designers and backend engineers.</li>
+          <li>Optimize applications for speed and scalability.</li>
+          <li>Write clean, maintainable, and testable code.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Qualifications</h2>
+        <ul>
+          <li>Bachelor’s degree in Computer Science or equivalent experience.</li>
+          <li>3+ years of frontend development experience.</li>
+          <li>Strong knowledge of JavaScript, HTML, and CSS.</li>
+          <li>Experience with React or similar frameworks.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>About Google</h2>
+        <p>
+          Google’s mission is to organize the world’s information and make it
+          universally accessible and useful. Join a team that values innovation,
+          diversity, and impact at a global scale.
+        </p>
+      </div>
+
+      <!-- Extra spacing to ensure scrolling behavior -->
+      <div style="height: 300px"></div>
+
+    </div>
+  </main>
+
+</body>
+</html>
