@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs Page 30</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { display: flex; background: #f5f6f8; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: #ffffff;
+      border-right: 1px solid #e0e0e0;
+      padding: 24px 16px;
+      height: 100vh;
+    }
+
+    .sidebar h2 {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: #333;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      background: #eef3ff;
+      color: #2f5cff;
+      font-weight: bold;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 32px;
+    }
+
+    .header {
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .header p {
+      color: #666;
+    }
+
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .job-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .job-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .job-card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .job-meta {
+      font-size: 13px;
+      color: #999;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .apply-btn {
+      margin-top: 16px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #2f5cff;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <h2>Navigation</h2>
+    <div class="nav-item">Home</div>
+    <div class="nav-item">Jobs Page 21</div>
+    <div class="nav-item">Jobs Page 29</div>
+    <div class="nav-item active">Jobs Page 30</div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="header">
+      <h1>Jobs Page 30</h1>
+      <p>Browse available job opportunities</p>
+    </div>
+
+    <section class="jobs-grid">
+      <div class="job-card">
+        <h3>Frontend Developer</h3>
+        <p>Build and maintain modern UI components.</p>
+        <div class="job-meta">
+          <span>Remote</span>
+          <span>Full Time</span>
+        </div>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <h3>Backend Engineer</h3>
+        <p>Design scalable APIs and services.</p>
+        <div class="job-meta">
+          <span>New York</span>
+          <span>Full Time</span>
+        </div>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <h3>UI/UX Designer</h3>
+        <p>Create intuitive user experiences.</p>
+        <div class="job-meta">
+          <span>Remote</span>
+          <span>Contract</span>
+        </div>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
