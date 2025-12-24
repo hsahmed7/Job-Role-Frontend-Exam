@@ -4,189 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JobNova – Jobs</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { display: flex; background: #f4f6fb; color: #1f2937; }
-
-    /* JobNova Sidebar */
-    .sidebar {
-      width: 260px;
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 24px 18px;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffffff;
-      margin-bottom: 32px;
-    }
-
-    .nav-section {
-      margin-bottom: 20px;
-    }
-
-    .nav-item {
-      padding: 12px 14px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-item.active {
-      background: #1d4ed8;
-      color: #ffffff;
-      font-weight: bold;
-    }
-
-    .nav-item:hover {
-      background: #1e293b;
-    }
-
-    /* Main Content */
-    .main {
-      flex: 1;
-      padding: 32px 36px;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 28px;
-    }
-
-    .header h1 {
-      font-size: 26px;
-    }
-
-    .search {
-      padding: 10px 14px;
-      width: 260px;
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-    }
-
-    .jobs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 22px;
-    }
-
-    .job-card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 22px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .job-card h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .company {
-      font-size: 14px;
-      color: #6b7280;
-      margin-bottom: 14px;
-    }
-
-    .job-tags {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .tag {
-      font-size: 12px;
-      padding: 6px 10px;
-      background: #e5edff;
-      color: #1d4ed8;
-      border-radius: 999px;
-    }
-
-    .apply-btn {
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      background: #1d4ed8;
-      color: #ffffff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- JobNova Sidebar -->
-  <aside class="sidebar">
-    <div class="logo">JobNova</div>
+<header class="mobile-header">
+  <button id="menuBtn">☰</button>
+  <strong>JobNova</strong>
+</header>
 
-    <div class="nav-section">
-      <div class="nav-item active">💼 Jobs</div>
-      <div class="nav-item">🤖 AI Mock Interview</div>
-      <div class="nav-item">📄 Resume</div>
-      <div class="nav-item">👤 Profile</div>
-      <div class="nav-item">⚙️ Settings</div>
-      <div class="nav-item">🚪 Logout</div>
-    </div>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">JobNova</div>
+    <a class="nav-item active" href="index.html">Jobs</a>
+    <a class="nav-item" href="recommendations.html">Recommended</a>
+    <a class="nav-item" href="#">AI Mock Interview</a>
+    <a class="nav-item" href="#">Resume</a>
+    <a class="nav-item" href="#">Profile</a>
   </aside>
 
-  <!-- Main Content -->
-  <main class="main">
-    <div class="header">
-      <h1>Recommended Jobs</h1>
-      <input class="search" placeholder="Search jobs..." />
+  <main class="content">
+    <h1>Matched Jobs</h1>
+
+    <div class="job-card" onclick="goToJob()">
+      <div class="match">93%</div>
+      <h3>Software Engineer</h3>
+      <p>Sunnyvale, CA · Full Time</p>
+      <button class="primary">Mock Interview</button>
     </div>
-
-    <section class="jobs-grid">
-      <div class="job-card">
-        <div>
-          <h3>Frontend Developer</h3>
-          <div class="company">Google · Remote</div>
-          <div class="job-tags">
-            <span class="tag">Full Time</span>
-            <span class="tag">React</span>
-          </div>
-        </div>
-        <button class="apply-btn">Apply Now</button>
-      </div>
-
-      <div class="job-card">
-        <div>
-          <h3>Backend Engineer</h3>
-          <div class="company">Amazon · New York</div>
-          <div class="job-tags">
-            <span class="tag">Full Time</span>
-            <span class="tag">Node.js</span>
-          </div>
-        </div>
-        <button class="apply-btn">Apply Now</button>
-      </div>
-
-      <div class="job-card">
-        <div>
-          <h3>UI/UX Designer</h3>
-          <div class="company">Stripe · Remote</div>
-          <div class="job-tags">
-            <span class="tag">Contract</span>
-            <span class="tag">Figma</span>
-          </div>
-        </div>
-        <button class="apply-btn">Apply Now</button>
-      </div>
-    </section>
   </main>
+</div>
 
 </body>
 </html>
